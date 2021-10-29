@@ -1,0 +1,275 @@
+[gd_scene load_steps=27 format=2]
+
+[ext_resource path="res://Scenes/Protagonist.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/VerbGallery.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/YourStats.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/Body_Sprites.gd" type="Script" id=4]
+[ext_resource path="res://Sprites/Right Arm.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Chest.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Left Arm.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Head.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Left Leg.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Right Leg.png" type="Texture" id=10]
+[ext_resource path="res://Scenes/Inventory.gd" type="Script" id=11]
+[ext_resource path="res://Scenes/Physicality.gd" type="Script" id=12]
+[ext_resource path="res://Scenes/VCtextinput.gd" type="Script" id=13]
+[ext_resource path="res://Sprites/LeftArm_red.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/Head_red.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/LeftLeg_red.png" type="Texture" id=16]
+[ext_resource path="res://Sprites/Chest_red.png" type="Texture" id=17]
+[ext_resource path="res://Sprites/RightLeg_red.png" type="Texture" id=18]
+[ext_resource path="res://Sprites/RightArm_red.png" type="Texture" id=19]
+[ext_resource path="res://Scenes/Concept.gd" type="Script" id=20]
+[ext_resource path="res://Sprites/Cold.png" type="Texture" id=21]
+[ext_resource path="res://Sprites/Hot.png" type="Texture" id=22]
+[ext_resource path="res://Scenes/Temperature.gd" type="Script" id=23]
+[ext_resource path="res://Scenes/Idea.tscn" type="PackedScene" id=24]
+[ext_resource path="res://Scenes/Ideas.gd" type="Script" id=25]
+
+[sub_resource type="StyleBoxFlat" id=1]
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color( 0, 0, 0, 1 )
+
+[node name="Protagonist" type="Node"]
+script = ExtResource( 1 )
+
+[node name="Temperature" type="Node" parent="."]
+script = ExtResource( 23 )
+
+[node name="Hot" type="Sprite" parent="Temperature"]
+visible = false
+position = Vector2( 639.889, 376.177 )
+scale = Vector2( 40.1621, 23.6801 )
+texture = ExtResource( 22 )
+
+[node name="Cold" type="Sprite" parent="Temperature"]
+visible = false
+position = Vector2( 639.58, 374.784 )
+scale = Vector2( 40.1815, 23.6453 )
+texture = ExtResource( 21 )
+
+[node name="VerbGallery" type="Node" parent="."]
+script = ExtResource( 2 )
+
+[node name="Concept" type="Node" parent="VerbGallery"]
+script = ExtResource( 20 )
+
+[node name="Concept2" type="Node" parent="VerbGallery"]
+script = ExtResource( 20 )
+
+[node name="Ideas" type="Node" parent="."]
+script = ExtResource( 25 )
+
+[node name="Idea" parent="Ideas" instance=ExtResource( 24 )]
+position = Vector2( 300, 600 )
+
+[node name="TextInput_Verb" type="LineEdit" parent="."]
+visible = false
+margin_left = 117.432
+margin_top = 599.837
+margin_right = 293.432
+margin_bottom = 657.837
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextInput_Objective" type="LineEdit" parent="."]
+visible = false
+margin_left = 382.701
+margin_top = 600.096
+margin_right = 560.701
+margin_bottom = 658.096
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextInput_Extra" type="LineEdit" parent="."]
+visible = false
+margin_left = 651.554
+margin_top = 599.771
+margin_right = 829.554
+margin_bottom = 657.771
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DescriptionPlus" type="RichTextLabel" parent="."]
+margin_left = 118.0
+margin_top = 201.0
+margin_right = 964.0
+margin_bottom = 260.0
+bbcode_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="YourDescription" type="RichTextLabel" parent="."]
+margin_left = 118.0
+margin_top = 129.0
+margin_right = 964.0
+margin_bottom = 195.0
+bbcode_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label_Verb" type="Label" parent="."]
+visible = false
+margin_left = 122.273
+margin_top = 578.837
+margin_right = 189.273
+margin_bottom = 597.837
+text = "VERB:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label_Objective" type="Label" parent="."]
+visible = false
+margin_left = 386.166
+margin_top = 577.653
+margin_right = 455.166
+margin_bottom = 591.653
+text = "SUBJECT:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label_Extra" type="RichTextLabel" parent="."]
+visible = false
+margin_left = 591.432
+margin_top = 620.837
+margin_right = 833.432
+margin_bottom = 664.837
+text = "with:
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label_Connector" type="RichTextLabel" parent="."]
+visible = false
+margin_left = 329.432
+margin_top = 620.837
+margin_right = 552.432
+margin_bottom = 664.837
+text = "to:
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="YourStats" type="Label" parent="."]
+margin_left = 69.9555
+margin_top = 38.9243
+margin_right = 237.956
+margin_bottom = 108.924
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Physicality" type="Node" parent="."]
+script = ExtResource( 12 )
+
+[node name="Body_Sprites" type="Sprite" parent="."]
+script = ExtResource( 4 )
+
+[node name="Head" type="Sprite" parent="Body_Sprites"]
+position = Vector2( 1152.78, 628.546 )
+texture = ExtResource( 8 )
+
+[node name="HeadRed" type="Sprite" parent="Body_Sprites/Head"]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 0, -1 )
+texture = ExtResource( 15 )
+
+[node name="Chest" type="Sprite" parent="Body_Sprites"]
+position = Vector2( 1152.78, 628.546 )
+texture = ExtResource( 6 )
+
+[node name="ChestRed" type="Sprite" parent="Body_Sprites/Chest"]
+modulate = Color( 1, 1, 1, 0 )
+texture = ExtResource( 17 )
+
+[node name="LeftArm" type="Sprite" parent="Body_Sprites"]
+position = Vector2( 1152.78, 628.546 )
+texture = ExtResource( 7 )
+
+[node name="LeftArmRed" type="Sprite" parent="Body_Sprites/LeftArm"]
+modulate = Color( 1, 1, 1, 0 )
+texture = ExtResource( 14 )
+
+[node name="RightArm" type="Sprite" parent="Body_Sprites"]
+position = Vector2( 1152.78, 628.546 )
+texture = ExtResource( 5 )
+
+[node name="RightArmRed" type="Sprite" parent="Body_Sprites/RightArm"]
+modulate = Color( 1, 1, 1, 0 )
+texture = ExtResource( 19 )
+
+[node name="LeftLeg" type="Sprite" parent="Body_Sprites"]
+position = Vector2( 1152.78, 628.546 )
+texture = ExtResource( 9 )
+
+[node name="LeftLegRed" type="Sprite" parent="Body_Sprites/LeftLeg"]
+modulate = Color( 1, 1, 1, 0 )
+texture = ExtResource( 16 )
+
+[node name="RightLeg" type="Sprite" parent="Body_Sprites"]
+position = Vector2( 1152.78, 628.546 )
+texture = ExtResource( 10 )
+
+[node name="RightLegRed" type="Sprite" parent="Body_Sprites/RightLeg"]
+modulate = Color( 1, 1, 1, 0 )
+texture = ExtResource( 18 )
+
+[node name="Label_Inventory" type="Label" parent="."]
+margin_left = 1100.33
+margin_top = 288.957
+margin_right = 1197.33
+margin_bottom = 316.957
+text = "INVENTORY"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Inventory" type="RichTextLabel" parent="."]
+margin_left = 1094.33
+margin_top = 310.957
+margin_right = 1209.33
+margin_bottom = 478.957
+custom_styles/normal = SubResource( 1 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+script = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VerbChallenge" type="Node" parent="."]
+
+[node name="VCdescription" type="RichTextLabel" parent="VerbChallenge"]
+visible = false
+margin_left = 117.568
+margin_top = 590.024
+margin_right = 964.568
+margin_bottom = 656.024
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VCtextinput" type="LineEdit" parent="VerbChallenge"]
+visible = false
+margin_left = 116.0
+margin_top = 629.0
+margin_right = 960.0
+margin_bottom = 681.0
+script = ExtResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Creations" type="Node" parent="."]
